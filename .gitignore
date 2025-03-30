@@ -1,0 +1,23 @@
+# .NET Core
+project.lock.json
+project.fragment.lock.json
+artifacts/
+*/bin/
+*/obj/
+*/.vs/
+
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+# User-specific files
+.vs2017/
+.vs2019/
+.vs/
+.idea/
+
+# JetBrains Rider
+.idea/
+
+# User-specific files
+.vsconfig
