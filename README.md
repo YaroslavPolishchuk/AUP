@@ -8,7 +8,7 @@
 ## Інструкція для запуску проекту
 
 ```docker build -t postgres .```  
-```**docker run --rm -it -d -p 5432:5432 --name ukrpostgres postgres```  
+```docker run --rm -it -d -p 5432:5432 --name ukrpostgres postgres```  
 *В результаті отримуємо базу даних на хості `localhost:5432` з попередньо завантаженими даними з SQL скрипта*  
 *Для запуску веб-додатку*  
 ```dotnet run --project AUP/WebApp.csproj```
