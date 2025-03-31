@@ -1,0 +1,42 @@
+﻿@{
+    ViewData["Title"] = "Завантаження завершено";
+}
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEJ9vM9k/5oFf5w6I05tU5J5hP2gQyGzzkZwD7FL7i4A6VpBvX5rKfFfSSyFk" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                @if (ViewBag.result == 0)
+                {
+                    <div class="alert alert-success text-center" role="alert">
+                        <h4 class="alert-heading">Успіх!</h4>
+                        <p>Дані були успішно завантажені</p>
+                        <p>Довідник AUP був створений</p>
+                        <hr>
+                        <p class="mb-0">Ви можете продовжити роботу з додатком.</p>
+                    </div>
+                }
+                else
+                {
+                    <div class="alert alert-danger text-center" role="alert">
+                        <h4 class="alert-heading">Помилка!</h4>
+                        <p>Не вдалося завантажити дані до довідника AUP.</p>
+                        <hr>
+                        <p class="mb-0">Будь ласка, спробуйте ще раз або зверніться до адміністратора.</p>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-pzjw8f+ua7Kw1TIq0JdCkTBR8+f+QZp6ox4JkBndPeFmgXj7U7IKNAs6ePTOVM0" crossorigin="anonymous"></script>
+</body>
+</html>

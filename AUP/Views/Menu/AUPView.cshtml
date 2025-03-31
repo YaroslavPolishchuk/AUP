@@ -1,0 +1,57 @@
+﻿@model List<DB_Layer.Models.AddressInfo>
+@using X.PagedList.Mvc.Core;
+@using X.PagedList;
+
+@{
+    ViewBag.Title = "Усi iндекси";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@if (!ViewBag.Any)
+{
+    <div class="alert alert-warning text-center">
+        <h4>Дані не завантажені до довідника AUP.</h4>
+        <p>Будь ласка, завантажте дані та спробуйте ще раз.</p>
+    </div>
+}
+else
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Iндекс</th>
+                <th>Мiсто</th>
+                <th>Район</th>
+                <th>Область</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in ViewBag.pagedList)
+            {
+                <tr>
+                    <td class="text-primary">@item.IndexA</td>
+                    <td class="@(string.IsNullOrEmpty(item.NCity) ? "text-muted" : "text-primary")">
+                        @(string.IsNullOrEmpty(item.NCity) ? "Дані не знайдено" : item.NCity)
+                    </td>
+                    <td class="@(string.IsNullOrEmpty(item.NRaj) ? "text-muted" : "text-primary")">
+                        @(string.IsNullOrEmpty(item.NRaj) ? "Дані не знайдено" : item.NRaj)
+                    </td>
+                    <td class="@(string.IsNullOrEmpty(item.NObl) ? "text-muted" : "text-primary")">
+                        @(string.IsNullOrEmpty(item.NObl) ? "Дані не знайдено" : item.NObl)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <div class="text-center">
+        @Html.PagedListPager((IPagedList)ViewBag.pagedList, page => Url.Action("ShowAUP", new { page }),
+                new PagedListRenderOptions
+    {
+        LiElementClasses = new string[] { "page-item" },
+        PageClasses = new string[] { "page-link" }
+    })
+    </div>
+    
+}
+
